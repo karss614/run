@@ -2,6 +2,7 @@ import time
 import sys
 import os
 import requests
+import colr
 
 name = """\033[1;32;40m
 ___________________________________________________________
@@ -40,8 +41,10 @@ except:
     f.write(wr)
     f.close
     f = open("url.txt", "r")
-    url1 = f.read()
+    urll = f.read()
     f.close
+
+    
     
 ur = "https://megarun.dialog.lk/api/xhr100000014133313/autoclicker234o9u9adknj23SFSBasdajJsae";
 
@@ -68,7 +71,7 @@ time.sleep(5)
 print('')
 
 
-url1 = "https://megarun.dialog.lk/api/v2/challenge/"
+uhh = "https://megarun.dialog.lk/api/v2/challenge/"
 
 a = open('auth.txt', 'r')
 auth = a.read()
@@ -82,7 +85,7 @@ h = {
           'Authorization': auth,
           
           }
-res = requests.get(url=url1, headers=h)
+res = requests.get(uhh, headers=h)
 resp = res
 if resp:
     print('success',resp,resp.text)
@@ -104,7 +107,7 @@ a.close
 
 
 
-h = {
+h55 = {
           'host':'megarun.dialog.lk',
           'X-Unity-Version':'2018.3.0f2',
           'Connection':'keep-Alive',
@@ -114,7 +117,7 @@ h = {
           
           
           }
-res = requests.post(url=url3, headers=h)
+res = requests.post(url3, headers=h55)
 resp = res
 if resp:
     print('success',resp,resp.text) 
@@ -126,7 +129,7 @@ time.sleep(15)
 print("")
 print("")
 
-spin = int(input("\033[1;32;40mEnter Number of Spins :- "))
+
 
 
 os.system('clear')
@@ -147,6 +150,34 @@ ___________________________________________________________
 print(name, "")
 
 try:
+    f = open("auth.txt", "r")
+    auth = f.read()
+    f.close 
+except:
+    wr = str(input("\033[1;0;40mPaste Your Auth here :- "))
+    f = open("auth.txt", "w")
+    f.write(wr)
+    f.close
+    f = open("auth.txt", "r")
+    auth = f.read()
+    f.close
+
+try:
+    f = open("url.txt", "r")
+    f = open("url.txt", "r")
+    url1 = f.read()
+    f.close
+except:
+    wr = str(input("Paste Your URL here :- "))
+    f = open("url.txt", "w")
+    f.write(wr)
+    f.close
+    f = open("url.txt", "r")
+    urll = f.read()
+    f.close
+
+
+try:
     import requests
 
 
@@ -161,10 +192,12 @@ except ImportError:
 def main():
     os.system("clear")
     print(name,"\n")
-    s = spin
+    s = 50
     header = {"Host": "megarun.dialog.lk",
               "Authorization": auth, "X-Unity-Version": "2018.3.0f2"}
     url = url1
+    
+    print()
     
     ss = 0
     while s > ss:
@@ -176,6 +209,7 @@ def main():
         
         
         
+        
         if resp == '<Response [204]>':
             
            
@@ -183,10 +217,12 @@ def main():
             print("\n\033[1;32;40m [+] No Data ... [+]", res.text)
             print(bar)  
         elif resp == '<Response [200]>':
-             
-             fk = rd['size']
+             result=res.json()
+             data = result['size']
              print(bar)
-             print("\n\033[1;32;40m [+] You Won Check Balance ... [+]", res.text)
+         
+             print()
+             print("\n\033[1;32;40m [+] You Won [+]", data, 'MB')
              print(bar)
         else:
             print(bar)
