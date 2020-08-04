@@ -2,7 +2,6 @@ import time
 import sys
 import os
 import requests
-import colr
 
 name = """\033[1;32;40m
 ___________________________________________________________
